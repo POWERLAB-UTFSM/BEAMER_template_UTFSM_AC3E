@@ -1,0 +1,161 @@
+\usetikzlibrary{external}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{babel}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{calc, arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{overlay-beamer-styles}
+\usetikzlibrary{through}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+
+\usepgfplotslibrary{units}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
+\ctikzset{american}
+
+%\tikzset{external/up to date check=md5}
+
+% \makeatletter
+%     \tikzset{
+%         beamer externalizing/.style={%
+%             execute at end picture={%
+%             \tikzifexternalizing{%
+%                 \ifbeamer@anotherslide
+%                 \pgfexternalstorecommand{\string\global\string\beamer@anotherslidetrue}%
+%                 \fi
+%             }{}%
+%             }%
+%         },
+%         external/optimize=false
+%     }
+%     % \let\orig@tikzsetnextfilename=\tikzsetnextfilename
+%     % \renewcommand\tikzsetnextfilename[1]{\orig@tikzsetnextfilename{#1-\overlaynumber}}
+% \makeatother
+
+% \makeatletter
+% \newcommand*{\overlaynumber}{\number\beamer@slideinframe}
+% \tikzset{
+%   beamer externalizing/.style={%
+%     execute at end picture={%
+%       \tikzifexternalizing{%
+%         \ifbeamer@anotherslide
+%         \pgfexternalstorecommand{\string\global\string\beamer@anotherslidetrue}%
+%         \fi
+%       }{}%
+%     }%
+%   },
+%   external/optimize=false
+% }
+% \let\orig@tikzsetnextfilename=\tikzsetnextfilename
+% \renewcommand\tikzsetnextfilename[1]{\orig@tikzsetnextfilename{#1-\overlaynumber}}
+% \makeatother
+
+% \tikzset{every picture/.style={beamer externalizing}}
+% \tikzset{external/only named=true}
+
+% \tikzset{
+%     invisible/.style={opacity=0},
+%     visible on/.style={alt={#1{}{invisible}}},
+%     alt/.code args={<#1>#2#3}{%
+%       \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+%     },
+%   }
+
+\makeatletter
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my horizontal lines}%
+    {\pgfpointorigin}{\pgfqpoint{100pt}{1pt}}{\pgfqpoint{100pt}{\LineSpace}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0.5pt}}
+        \pgfpathlineto{\pgfqpoint{100pt}{0.5pt}}
+        \pgfusepath{stroke}
+    }
+ 
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my vertical lines}%
+    {\pgfpointorigin}{\pgfqpoint{1pt}{100pt}}{\pgfqpoint{\LineSpace}{100pt}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{0.5pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{0.5pt}{100pt}}
+        \pgfusepath{stroke}
+    } 
+ 
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my grid}%
+    {\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{\LineSpace}{\LineSpace}}
+    {\pgfqpoint{\LineSpace}{\LineSpace}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{0pt}{\LineSpace + 0.1pt}}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{\LineSpace + 0.1pt}{0pt}}
+        \pgfusepath{stroke}
+    }
+ 
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my north east lines}
+    {\pgfqpoint{-\LineWidth}{-\LineWidth}}{\pgfqpoint{\LineSpace}{\LineSpace}}
+    {\pgfqpoint{\LineSpace}{\LineSpace}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{-\LineWidth}{-\LineWidth}}
+        \pgfpathlineto{\pgfqpoint{\LineSpace + 0.1pt}{\LineSpace + 0.1pt}}
+        \pgfusepath{stroke}
+    }
+ 
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my north west lines}
+    {\pgfqpoint{-\LineWidth}{-\LineWidth}}{\pgfqpoint{\LineSpace}{\LineSpace}}
+    {\pgfqpoint{\LineSpace}{\LineSpace}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{-\LineWidth}{\LineSpace}}
+        \pgfpathlineto{\pgfqpoint{\LineSpace + 0.1pt}{-\LineWidth}}
+        \pgfusepath{stroke}
+    }
+ 
+\pgfdeclarepatternformonly[\LineSpace,\LineWidth]{my crosshatch}%
+    {\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{\LineSpace}{\LineSpace}}
+    {\pgfqpoint{\LineSpace}{\LineSpace}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\LineWidth}
+        \pgfpathmoveto{\pgfqpoint{\LineSpace + 0.1pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{0pt}{\LineSpace + 0.1pt}}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{\LineSpace + 0.1pt}{\LineSpace + 0.1pt}}
+        \pgfusepath{stroke}
+    }
+ 
+\pgfdeclarepatternformonly[\LineSpace,\PointSize]{my dots}%
+    {\pgfqpoint{-\LineSpace*0.25}{-\LineSpace*0.25}}
+    {\pgfqpoint{\LineSpace*0.25}{\LineSpace*0.25}}
+    {\pgfqpoint{\LineSpace*0.75}{\LineSpace*0.75}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfpathcircle{\pgfqpoint{0pt}{0pt}}{\PointSize}
+        \pgfusepath{fill}
+    }
+\makeatother
+ 
+\newdimen\LineSpace
+\newdimen\PointSize
+\newdimen\LineWidth
+\tikzset{
+    line space/.code={\LineSpace=#1},
+    line space=3pt
+}
+\tikzset{
+    point size/.code={\PointSize=#1},
+    point size=.5pt
+}
+\tikzset{
+    pattern line width/.code={\LineWidth=#1},
+    pattern line width=.4pt
+}

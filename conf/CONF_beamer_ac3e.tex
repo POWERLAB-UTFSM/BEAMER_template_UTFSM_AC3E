@@ -1,0 +1,57 @@
+\definecolor{links}{HTML}{0000FF}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\captionsetup{font=tiny,labelfont=tiny}
+
+\useoutertheme{utfsm}
+\useinnertheme{utfsm}
+\usecolortheme{ac3eutfsm}
+
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+    \hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+\newcommand{\swON}{\textbf{ON}}
+\newcommand{\swOFF}{OFF}
+
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\titlegraphic{
+    \includegraphics[height=50pt]{img/UTFSM_color_claro_vertical.pdf} \hspace{40pt} \includegraphics[height=50pt]{img/logo_AC3E_color.pdf}
+ }
+
+\setbeamerfont{block title}{size={}}
+%\setbeamercolor{titlelike}{parent=structure,bg=orange}
+
+\setbeamercovered{transparent}
+
+\setbeamertemplate{blocks}[rounded]
+
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+\renewcommand*{\bibfont}{\scriptsize}
+\setbeamerfont{footnote}{size=\scriptsize}
+\DeclareNameAlias{author}{last-first}
+
+\setitemize{
+   label=\usebeamerfont*{itemize item}%
+   \usebeamercolor[fg]{itemize item}
+   \usebeamertemplate{itemize item}
+   }

@@ -1,0 +1,37 @@
+\useoutertheme{utfsm}
+\useinnertheme{utfsm}
+\usecolortheme{eloutfsm}
+
+\titlegraphic{
+    \includegraphics[height=50pt]{img/UTFSM_color_claro_vertical.pdf} \hspace{40pt} \includegraphics[height=50pt]{img/ELO_color_claro_vertical.pdf}
+}
+
+\definecolor{links}{HTML}{0000FF}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\setbeamerfont{block title}{size={}}
+%\setbeamercolor{titlelike}{parent=structure,bg=orange}
+
+
+\setbeamercovered{invisible}
+\setbeamertemplate{blocks}[rounded]
+
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+
+%\setbeamertemplate{itemize/enumerate body begin}{\small}

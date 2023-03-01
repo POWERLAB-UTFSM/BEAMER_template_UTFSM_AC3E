@@ -1,0 +1,137 @@
+\setabbreviationstyle[acronym]{long-short}% glossaries-extra.sty only
+
+% \newacronym{VSC}{VSC}
+% {
+%   name={VSC},
+%   description={Voltage Source Converter},
+%   descriptionplural={Voltage Source Converters},
+%   first={\glsentrydesc{VSC} (\glsentrytext{VSC})},
+%   plural={VSCs},
+%   firstplural={\glsentrydescplural{VSC} (\glsentryplural{VSC})}
+% }
+
+\newglossary[slg]{symbols}{sls}{slo}{List of symbols}
+
+\newacronym{VSC}{VSC}{Voltage Source Converter}
+\newacronym{MV}{MV}{Medium Voltage}
+\newacronym{ML}{ML}{Multi-Level}
+\newacronym{NPC}{NPC}{Neutral-Point Clamped}
+\newacronym{NPP}{NPP}{Neutral-Point Piloted}
+\newacronym{ANPC}{ANPC}{Active \gls{NPC}}
+\newacronym{SiC}{SiC}{Silicon Carbide}
+\newacronym{FET}{FET}{Field-Effect Transistor}
+\newacronym{MOSFET}{MOSFET}{Metal Oxide Semiconductor \gls{FET}}
+
+\newglossaryentry{P_loss_av}
+{
+	type=symbols,
+	name= $\overline{p_{l}}$, 
+	symbol={P_{loss,av}},
+	description={Mean power loss},
+	first={mean power loss ($\overline{p_{l}}$)},
+}
+
+\newglossaryentry{t_junc_av}
+{
+	type=symbols,
+	name= $\overline{\vartheta_{j}}$, 
+	symbol={t_{j,av}},
+	description={Mean junction temperature},
+	first={mean junction temperature ($\overline{\vartheta_{j}}$)},
+}
+
+
+% % Defines a new glossary type
+% \newglossary[alg]{acronym}{acr}{acn}{%
+%     \iflanguage{english}{Acronyms and Abbreviation}{%
+%     \iflanguage{spanish}{Acrónimos y abreviaturas}{}
+%     }%
+% }%
+
+% \newglossary[slg]{symbols}{sls}{slo}{%
+%     \iflanguage{english}{Symbols}{%
+%     \iflanguage{spanish}{Símbolos}{}
+%     }%
+% }
+
+% \newglossaryentry{ac:PWM}{
+% 	name=PWM,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         modulación por ancho de pulsos
+%         },%
+% 	first={%
+%         modulación por ancho de pulsos (PWM)
+%     },%
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }
+
+% \newglossaryentry{ac:PFC}{
+% 	name=PWM,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         corrección de factor de potencia
+%         },%
+% 	first={%
+%         corrección de factor de potencia (PFC)
+%     },%
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }
+
+% \newglossaryentry{ac:UPS}{
+% 	name=UPS,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         frente activo
+%         },%
+% 	first={%
+%         frente activo (AFE)
+%     },%
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }
+
+% \newglossaryentry{ac:AFE}{
+% 	name=PWM,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         frente activo
+%         },%
+% 	first={%
+%         frente activo (AFE)
+%     },%
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }
+
+% \newglossaryentry{ac:SVM}{
+% 	name=PWM,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         modulación vectorial
+%         },%
+% 	first={%
+%         modulación vectorial (SVM)
+%     },%
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }
+
+% \newglossaryentry{ac:SHE}{
+% 	name=SHE,
+% 	%plural=PWM,
+% 	type=acronym,
+% 	description={%
+%         eliminación selectiva de armónicos%
+%         % \langen{selective harmonic elimination}%
+%         % \langes{eliminación selectiva de armónicos}%
+%         },%
+% 	first={%
+%         eliminación selectiva de armónicos (SHE)%
+%         % \langen{selective harmonic elimination (SHE)}%
+%         % \langes{eliminación selectiva de armónicos (SHE)}%
+%     },
+% 	%firstplural={modulación por ancho de pulsos (PWM)},
+% }

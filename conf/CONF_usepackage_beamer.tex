@@ -1,0 +1,91 @@
+\usefonttheme{professionalfonts}
+\usepackage{ifluatex}
+\ifluatex
+	\usepackage{shellesc}
+    
+	% \usepackage[no-math]{fontspec}
+	% \defaultfontfeatures{Ligatures=TeX}
+	% \usepackage[]{unicode-math} 
+	% \unimathsetup{math-style=TeX}
+	\usepackage{fontspec}
+	\usepackage[italic]{mathastext}
+	\usepackage{arevmath}
+
+\else
+%default: pdf(La)TeX
+	\usepackage{lmodern} % load vector font
+	\usepackage[T1]{fontenc} % font encoding
+	\usepackage[utf8]{inputenc} % input encoding
+	%\usepackage{sansmath}
+	\usepackage[italic]{mathastext}
+	\usepackage{arevmath}
+\fi
+\usepackage[per-mode = symbol]{siunitx}
+\sisetup{detect-all = true, detect-family = true}
+\usepackage{amsmath}
+%\usepackage{arev}
+\usepackage{mathtools}
+\usepackage{mathdots}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{ulem}
+\usepackage{mwe}
+% \usepackage{pgf}
+% \usepackage{pgfplots}
+% \usepackage{pgfplotstable}
+% \usepackage[]{circuitikz}
+\usepackage{bm}
+\usepackage{filecontents}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{pifont}
+% \usepackage{pgf-pie}
+% \usepackage{emoji}
+\usepackage{copyrightbox}
+
+%\usepackage{movie15}
+%\usepackage{subfig}
+\usepackage{enumitem}
+
+%\usepackage{movie15}
+%\usepackage{subfig}
+\usepackage{subcaption}
+\usepackage{datetime}
+\usepackage{afterpage}
+\usepackage{lscape}
+% \usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{blindtext}
+%\usepackage[acronym]{glossaries}
+\usepackage{glossaries-extra}
+\usepackage[autolang=hyphen,sorting=none,maxbibnames=99,doi=false,isbn=false,url=false,maxcitenames=3,backend=biber,firstinits=true]{biblatex}
+%\usepackage{cite}
+%\usepackage{colortbl}
+%\usepackage{collcell}
+\usepackage{threeparttable}
+\usepackage{caption}
+%\usepackage{footnotebackref}
+%\usepackage{tablefootnote}
+%\usepackage{dpfloat}
+\usepackage[]{geometry}%
+%\usepackage{fancyhdr}
+\usepackage{xargs}  
+%\usepackage[]{sidenotes}
+\usepackage{fancyvrb}
+\usepackage{textcomp}
+%\usepackage{tikzsymbols}
+%\usepackage[beamer,customcolors]{hf-tikz}
+%\usepackage[draft=true,allpages=true,fontfamily=cmr,angle=90,scale=0.2,mark=BORRADOR,
+%color=red!75!green!50,xcoord=-80,ycoord=-20]{draftmark}
+\usepackage{hyperref}%
+\usepackage[subpreambles=true,mode=buildnew]{standalone}
+\usepackage{currfile}
+
+\usepackage{iflang}
+\newcommand{\langen}[1]{\protect\IfLanguageName{english}{#1}{}}%
+\newcommand{\langde}[1]{\protect\IfLanguageName{ngerman}{#1}{}}%
+\newcommand{\langes}[1]{\protect\IfLanguageName{spanish}{#1}{}}%
