@@ -50,8 +50,22 @@
 \setbeamerfont{footnote}{size=\scriptsize}
 \DeclareNameAlias{author}{last-first}
 
-\setitemize{
-   label=\usebeamerfont*{itemize item}%
-   \usebeamercolor[fg]{itemize item}
-   \usebeamertemplate{itemize item}
-   }
+% \setitemize{
+%    label=\usebeamerfont*{itemize item}%
+%    \usebeamercolor[fg]{itemize item}
+%    \usebeamertemplate{itemize item}
+%    }
+
+\makeatletter
+\define@key{beamerframe}{endframe}[true]{%
+\usebackgroundtemplate{%
+            \tikz\node[opacity=0.30,inner sep=0]{%
+                \includegraphics[width=\paperwidth]{%
+                    img/ac3e_background.jpg%
+                }%
+            };%
+        }%
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{}
+}
+\makeatother
