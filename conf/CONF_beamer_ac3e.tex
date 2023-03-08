@@ -56,16 +56,33 @@
 %    \usebeamertemplate{itemize item}
 %    }
 
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background}{}
+}
+
 \makeatletter
-\define@key{beamerframe}{endframe}[true]{%
-\usebackgroundtemplate{%
+\define@key{beamerframe}{titleframe}[true]{%
+%\usebackgroundtemplate{%
+\setbeamertemplate{background}{
             \tikz\node[opacity=0.30,inner sep=0]{%
                 \includegraphics[width=\paperwidth]{%
                     img/ac3e_background.jpg%
                 }%
             };%
         }%
-%\setbeamertemplate{headline}{}
-%\setbeamertemplate{footline}{}
 }
+
+\define@key{beamerframe}{endframe}[true]{%
+%\usebackgroundtemplate{%
+    \setbeamertemplate{background}{
+        \tikz\node[opacity=0.30,inner sep=0]{%
+            \includegraphics[width=\paperwidth]{%
+                img/ac3e_background.jpg%
+            }%
+        };
+    }%
+}
+    
+    
 \makeatother
