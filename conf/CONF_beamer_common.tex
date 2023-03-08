@@ -1,0 +1,379 @@
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% general setups
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=links,citecolor=colorfamA}
+\captionsetup{font=tiny,labelfont=tiny}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% newcommand
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+% -------------------------------------------------------
+% backup slides (do not count)
+% -------------------------------------------------------
+\newcommand{\backupbegin}{%
+  \newcounter{finalframe}%
+  \setcounter{finalframe}{\value{framenumber}}%
+}%
+\newcommand{\backupend}{%
+  \setcounter{framenumber}{\value{finalframe}}%
+}%
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{%
+  \rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+  \hspace{-2.5pt}%
+}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\newcommand{\swON}{\textbf{ON}}
+\newcommand{\swOFF}{OFF}
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+\renewcommand*{\bibfont}{\scriptsize}
+
+% % -------------------------------------------------------
+% % my images (template)
+% % -------------------------------------------------------
+% \newcommand{\mybackgroundimage}{img/ac3e_background.jpg}
+% \newcommand{\mylogoA}{img/UTFSM_color_claro_vertical.pdf}
+% \newcommand{\mylogoB}{img/logo_AC3E_full_color.pdf}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% usethemes (overriden, not used)
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+%\useoutertheme{utfsm}
+%\useinnertheme{utfsm}
+%\usecolortheme{ac3eutfsm}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer fonts set
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+\setbeamerfont{date}{size=\footnotesize}
+\setbeamerfont{footnote}{size=\scriptsize}
+
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
+\setbeamerfont{block title}{size={}}
+
+\setbeamerfont{footnote}{size=\scriptsize}
+
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer title graphics
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\titlegraphic{%
+    \includegraphics[height=45pt]{\mylogoA}%
+    \hspace{40pt}%
+    \includegraphics[height=45pt]{\mylogoB}%
+}%
+
+%\setbeamercolor{titlelike}{parent=structure,bg=orange}
+
+\setbeamercovered{transparent}
+
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% bbilatex declare name alias
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\DeclareNameAlias{author}{last-first}
+
+% \setitemize{
+%    label=\usebeamerfont*{itemize item}%
+%    \usebeamercolor[fg]{itemize item}
+%    \usebeamertemplate{itemize item}
+%    }
+
+\makeatletter
+% \DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
+% \ExecuteOptionsBeamer{shadow=false}
+% \ProcessOptionsBeamer
+\makeatother
+
+\makeatletter
+
+
+  
+\mode<presentation>
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% color definition
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+\definecolor{darkblue}{rgb}{0,0,0.8}
+
+\definecolor{blue_usm}{HTML}{004B85}
+\definecolor{red_usm}{HTML}{D60019}
+\definecolor{green_usm}{HTML}{008452}
+\definecolor{yellow_usm}{HTML}{F7AE00}
+%\definecolor{elo_1}{HTML}{20FF20}
+\definecolor{ac3e_orange}{HTML}{F57F25}
+\definecolor{ac3e_grey}{HTML}{414142}
+\definecolor{elo_1}{RGB}{97,195,50}
+\definecolor{elo_2}{RGB}{123,121,121}
+\definecolor{elo_3}{HTML}{77EE77}
+\definecolor{elo_4}{HTML}{F7AE00}
+
+\definecolor{links}{HTML}{0000FF}
+
+% -------------------------------------------------------
+% color family A and B
+% -------------------------------------------------------
+\colorlet{colorfamA}{ac3e_orange}
+\colorlet{colorfamB}{ac3e_grey}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer color set
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+\setbeamercolor*{structure}{fg=colorfamA,bg=colorfamB!60!white}
+
+\setbeamercolor{alerted text}{fg=red!80!yellow}
+\setbeamercolor*{palette primary}{fg=colorfamA!15!white,bg=colorfamA}
+\setbeamercolor*{palette secondary}{fg=colorfamB,bg=colorfamA!0!white}
+\setbeamercolor*{palette tertiary}{fg=colorfamA!10!white,bg=colorfamB}
+\setbeamercolor*{palette quaternary}{fg=colorfamA,bg=colorfamA}
+
+\setbeamercolor*{sidebar}{fg=colorfamB,bg=colorfamA!75!white}
+
+\setbeamercolor*{palette sidebar primary}{fg=darkblue!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{fg=darkblue!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=yellow!10!orange}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{frametitle}{bg=white,fg=black}
+\setbeamercolor{frametitle right}{bg=colorfamA,fg=black}
+
+\setbeamercolor{navigation symbols}{fg=colorfamA!30!white, bg=colorfamA!40!white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=colorfamA!10}
+\setbeamercolor{block title}{fg=colorfamA!70!black,bg=colorfamA!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+\setbeamercolor{itemize item}{fg=colorfamA!90!black}
+\setbeamercolor{itemize subitem}{fg=colorfamA!90!black}
+\setbeamercolor{itemize subsubitem}{fg=colorfamA!90!black}
+
+\setbeamercolor{item projected}{bg=colorfamA!90!black,fg=white}
+
+\setbeamercolor{bibliography entry author}{fg=colorfamB}
+\setbeamercolor{bibliography entry title}{fg=colorfamA!90!black} 
+\setbeamercolor{bibliography entry location}{fg=colorfamB!80!white} 
+\setbeamercolor{bibliography entry note}{fg=colorfamB!80!white} 
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+% -------------------------------------------------------
+% shading
+% -------------------------------------------------------
+\pgfdeclarehorizontalshading[bg,fg]{beamer@frametitleshade}{\paperheight}{%
+    color(0pt)=(bg);
+    color(\paperwidth)=(white)}
+
+\pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+        color(0pt)=(bg);
+        color(4pt)=(bg)}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer define frame keys
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+\define@key{beamerframe}{titleframe}[true]{%
+%\usebackgroundtemplate{%
+  \beamer@plainframetrue%
+  \def\beamer@frametemplate{\beamer@frametemplate@plain}
+  \setbeamertemplate{background}{
+    \centering
+    \tikz\node[opacity=0.30,inner sep=0]{%
+      \includegraphics[height=\paperheight]{%
+        \mybackgroundimage%
+      }%
+    };%
+  }%
+}
+
+\define@key{beamerframe}{endframe}[true]{%
+%\usebackgroundtemplate{%
+  %\def\beamer@exitcode{\vspace*{0cm}\thispagestyle{empty}}
+  \setbeamertemplate{footline}[infolines theme]
+  \setbeamertemplate{headline}{\vskip\headheight}    
+  \def\beamer@entrycode{\vspace*{-\headheight}}%   
+  \setbeamertemplate{background}{
+    \centering
+    \tikz\node[opacity=0.30,inner sep=0,anchor = center,yshift=-10cm]{%
+      \includegraphics[height=\paperheight]{%
+        \mybackgroundimage%
+      }%
+    };
+  }%
+}
+
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer template set
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+% -------------------------------------------------------
+% common background
+% -------------------------------------------------------
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background}{}
+  \setbeamertemplate{footline}[infolines theme]
+  \setbeamertemplate{headline}[infolines theme]
+}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=false]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=false]
+\setbeamertemplate{section page}[default][colsep=-4bp,rounded=true,shadow=false]
+\setbeamertemplate{subsection page}[default][colsep=-4bp,rounded=true,shadow=false]
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+
+\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{0pt}}
+
+% -------------------------------------------------------
+% title page set
+% -------------------------------------------------------
+\setbeamertemplate{title page}
+{
+  \vbox{}
+  \begingroup
+    \centering
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
+    \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip0.5em\par
+    \vfill
+    \begin{beamercolorbox}[sep=4pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=4pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=4pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  \endgroup
+}
+
+
+% -------------------------------------------------------
+% footline set
+% -------------------------------------------------------
+\defbeamertemplate*{footline}{infolines theme}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% -------------------------------------------------------
+% headline set
+% -------------------------------------------------------
+\defbeamertemplate*{headline}{infolines theme}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% -------------------------------------------------------
+% frametitle set
+% -------------------------------------------------------
+\setbeamertemplate{frametitle}
+{%
+  \nointerlineskip%
+  \vskip-2pt%
+  \hbox{%
+    \leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+        \vbox{}\vskip-.5ex%
+        \leftskip0.3cm%
+        \rightskip0.3cm plus1fil\leavevmode
+        \insertframetitle%
+        \ifx\insertframesubtitle\@empty%
+        \strut\par%
+        \else
+        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+        \fi%
+        \nointerlineskip
+        \vbox{}%
+      \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+          \usebeamercolor{frametitle right}
+          \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+          \pgfusepath{clip}
+          \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  \nointerlineskip
+  \vskip-0.2pt
+  \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+  \vskip-2pt
+}
+
+
+
+
+\mode
+<all>
+
+\makeatother

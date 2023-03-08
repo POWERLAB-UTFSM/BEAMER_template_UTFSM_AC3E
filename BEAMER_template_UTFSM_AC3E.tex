@@ -1,22 +1,28 @@
 % LTeX: language=es
-\documentclass[aspectratio=169,xcolor=table]{beamer}
+\documentclass[%
+aspectratio=169,%
+xcolor=table,%
+]{beamer}
 
 % idioma
 \usepackage[english]{babel}
+
 % usepackages para el documento
 \input{conf/CONF_usepackage_beamer.tex}
 
 % configuración beamer UTFSM
-\input{conf/CONF_beamer_ac3e.tex}
-%\input{conf/CONF_beamer_utfsm.tex}
+\input{conf/CONF_beamer_elo_utfsm.tex}
 
-% configuración para gráficos PFG/TikZ (incluido CircuiTikZ)
+
+% configuración para gráficos PFG/TikZ (incluido CircuiTikZ) 
+% NO es necesario si se utiliza \usepackage{standalone}
 %\input{conf/CONF_pgf_tikz.tex} 
 
 % glosario
 \input{glos/glossaryentries.tex}
 
 % bibliografía (biblatex)
+\addbibresource{bib/IEEEabrv.bib}
 \addbibresource{bib/bibliografia.bib}
 \AtEveryCitekey{\clearfield{pages}}
 % \setbeamertemplate{bibliography item}{\insertbiblabel}
@@ -28,13 +34,26 @@
 %-------------------------------------------------------------------------------------------------------------------------
 % Configuración de título
 %--------------------------------------------------------------------------------------------------------------------------
-\title[Title (small)]{Title (full)}
+\title%
+[Title (small)]%
+{Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full)
+}%
 
 \subtitle{subtitle}
 
-\author[Alan Wilson (\href{mailto:alan.wilson@usm.cl}{\color{white}{alan.wilson@usm.cl}})]{Dr.-Ing. Alan Wilson}
+\author%
+[Alan Wilson (\href{mailto:alan.wilson@usm.cl}{\color{white}{alan.wilson@usm.cl}}) et al.]%
+{Alan Wilson~\inst{1}, % 
+Author2~\inst{2}, %
+Author3~\inst{3}%
+}%
 
-\institute[AC3E]{Advanced Center for Electrical and Electronic Engineering (AC3E),\\ Universidad Técnica Federico Santa María}
+\institute%
+[AC3E]%
+{%
+\inst{1} Advanced Center for Electrical and Electronic Engineering (AC3E),\\ Universidad Técnica Federico Santa María \and% 
+\inst{2} Affiliation 2 \and%
+\inst{3} Affiliation 3}
 
 \newdate{fechaclase}{13}{12}{2022}
 %\date[\displaydate{fechaclase}]{\displaydate{fechaclase}}
@@ -47,7 +66,8 @@
     % TITLE
     %--------------------------------------------------------------------------------------------------------------------------
 
-    \begin{frame}[titleframe,plain]
+    \begin{frame}
+        [titleframe,t]
     \titlepage
     \end{frame}
     
@@ -63,17 +83,50 @@
     % FRAME input
     %--------------------------------------------------------------------------------------------------------------------------
 
+    \section{Section x}
+    \subsection{Subsection xx}
+    \frame{\frametitle{Contents}\tableofcontents[currentsection]}
     \input{frame/test_1.tex}
+    \section{Section y}
+    \subsection{Subsection xx}
+    \frame{\frametitle{Contents}\tableofcontents[currentsection]}
+    \input{frame/test_2.tex}
+    \subsection{Subsection yy}
+    \input{frame/test_3.tex}
 
     %--------------------------------------------------------------------------------------------------------------------------
-    % TITLE
+    % End frame
     %--------------------------------------------------------------------------------------------------------------------------
  
-    %\setbeamertemplate{headline}{}
-    %\setbeamertemplate{footline}{}
-    \begin{frame}[endframe,plain]
-
+    \begin{frame}
+        [endframe,t]
+        \centering\inserttitlegraphic\par
+        \vfill
+        \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{palette secondary}
+            \usebeamerfont{title}
+            Thank you for your attention!\\
+            Any questions?
+        \end{beamercolorbox}
     \end{frame}
 
-    
+    %--------------------------------------------------------------------------------------------------------------------------
+    % Appendices
+    %--------------------------------------------------------------------------------------------------------------------------
+    \part{}
+    \begin{frame}
+        \frametitle{Contents}
+        \tableofcontents
+    \end{frame}
+
+    \backupbegin
+    \begin{frame}
+        \frametitle{References}
+        \printbibliography
+    \end{frame}
+    \section{Appendix}
+    \input{frame/test_4.tex}
+    \section{Appendix 2}
+    \input{frame/test_5.tex}
+    \backupend
+ 
 \end{document}
