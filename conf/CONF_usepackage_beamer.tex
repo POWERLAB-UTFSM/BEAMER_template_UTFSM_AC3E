@@ -64,9 +64,13 @@
 % \usepackage{booktabs}
 % \usepackage{multirow}
 % \usepackage{blindtext}
-% %\usepackage[acronym]{glossaries}
+\usepackage[%
+	acronym,%
+	nonumberlist,%
+	nogroupskip,
+	]{glossaries}%
 \usepackage{glossaries-extra}
-
+\usepackage{etoolbox}
 % %\usepackage{cite}
 % %\usepackage{colortbl}
 % %\usepackage{collcell}
@@ -85,9 +89,24 @@
 % %\usepackage[beamer,customcolors]{hf-tikz}
 % %\usepackage[draft=true,allpages=true,fontfamily=cmr,angle=90,scale=0.2,mark=BORRADOR,
 % %color=red!75!green!50,xcoord=-80,ycoord=-20]{draftmark}
-\usepackage[autolang=hyphen,sorting=none,maxbibnames=99,doi=false,isbn=false,url=false,maxcitenames=3,backend=biber,firstinits=true,citestyle=ieee-alphabetic,bibstyle=ieee,]{biblatex}
+\usepackage[%
+	autolang=hyphen,%
+	sorting=none,%
+	maxbibnames=99,%
+	doi=false,%
+	isbn=false,%
+	url=false,%
+	maxcitenames=3,%
+	backend=biber,%
+	firstinits=true,%
+	citestyle=ieee-alphabetic,%
+	bibstyle=ieee-alphabetic,%
+	]{biblatex}
 \usepackage{hyperref}%
-\usepackage[subpreambles=true,mode=buildnew]{standalone}
+\usepackage[%
+	%subpreambles=true,%
+	mode=buildnew,%
+	]{standalone}
 \usepackage{currfile}
 
 \usepackage{iflang}

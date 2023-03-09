@@ -4,6 +4,62 @@
 
 \hypersetup{colorlinks,linkcolor=,urlcolor=links,citecolor=colorfamA}
 \captionsetup{font=tiny,labelfont=tiny}
+% -------------------------------------------------------
+% glossary style
+% -------------------------------------------------------
+%\setglossarystyle{longheader}
+
+\makeatletter
+% use frame numbers instead of subsection slide numbers so that frames broken over slides get separate circles
+\patchcmd{\slideentry}{\c@subsectionslide}{\c@framenumber}{}{\errmessage{unable to patch \string\slideentry}}
+\patchcmd{\beamer@writeslidentry}{\c@subsectionslide}{\c@framenumber}{}{\errmessage{unable to patch \string\beamer@writeslideentry}}
+\makeatother
+
+\newglossarystyle{symbunitlongbeamer}{%
+  \setglossarystyle{long3col}% base this style on the list style
+  \renewenvironment{theglossary}{% Change the table type --> 3 columns
+  \rowcolors{1}{colorfamB!20!white}{}
+    \begin{longtable}{lp{0.9\glsdescwidth}>{\centering\arraybackslash}c}
+  }%
+  {\end{longtable}}%
+  %
+  \renewcommand*{\glossaryheader}{%  Change the table header
+    \rowcolor{colorfamA!35!white}  
+    \bfseries \iflanguage{spanish}{Símbolo}{Sign} & 
+    \bfseries \iflanguage{spanish}{Descripción}{Description} & 
+    \bfseries \iflanguage{spanish}{Unidad}{Unit} \\%
+    %\hline%
+    \endhead%
+  }
+  \renewcommand*{\glossentry}[2]{%  Change the displayed items
+  \glstarget{##1}{\glossentryname{##1}} %
+  & \glossentrydesc{##1}% Description
+  & \glsunit{##1}
+  \tabularnewline%
+  }
+}
+
+\newglossarystyle{acronlongbeamer}{%
+  \setglossarystyle{long}% base this style on the list style
+  \renewenvironment{theglossary}{% Change the table type --> 3 columns
+  \rowcolors{1}{colorfamB!20!white}{}
+     \begin{longtable}{lp{0.9\glsdescwidth}}
+  }%
+  {\end{longtable}}%
+  %
+  \renewcommand*{\glossaryheader}{%  Change the table header
+    \rowcolor{colorfamA!35!white}  
+    \bfseries \iflanguage{spanish}{Acrónimo}{Acronym} &
+    \bfseries \iflanguage{spanish}{Descripción}{Description} \\%
+    %\hline%
+    \endhead%
+  }
+  \renewcommand*{\glossentry}[2]{%  Change the displayed items
+  \glstarget{##1}{\glossentryname{##1}} %
+  & \glossentrydesc{##1}% Description
+  \tabularnewline%
+  }
+}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 % newcommand

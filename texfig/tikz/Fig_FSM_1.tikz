@@ -598,4 +598,20 @@
         {\textit{ok}} 
     (s_n);
 
+\path[%
+    linetran_I,%
+]%
+    (s_t_zl2_2_n) %
+    edge [bend right=40] %
+    node [%
+        align=left,%
+        pos=0.15,%
+        below right,%
+        font=\scriptsize,%
+        inner sep=0.1,%
+        outer sep=0.1,%
+        ]%
+        {\textit{ok}}%
+    (s_n);%
+
 \end{tikzpicture}

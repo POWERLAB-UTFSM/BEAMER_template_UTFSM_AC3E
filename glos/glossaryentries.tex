@@ -11,6 +11,9 @@
 % }
 
 \newglossary[slg]{symbols}{sls}{slo}{List of symbols}
+\glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
+
+\glsnoexpandfields
 
 \newacronym{VSC}{VSC}{Voltage Source Converter}
 \newacronym{MV}{MV}{Medium Voltage}
@@ -21,6 +24,10 @@
 \newacronym{SiC}{SiC}{Silicon Carbide}
 \newacronym{FET}{FET}{Field-Effect Transistor}
 \newacronym{MOSFET}{MOSFET}{Metal Oxide Semiconductor \gls{FET}}
+\newacronym{VSD}{VSD}{Variable Speed Drive}
+\newacronym{GaN}{GaN}{Gallium Nitride}
+\newacronym{DAB}{DAB}{Dual Active Bridge}
+\newacronym{SST}{SST}{Solid State Transformer}
 
 \newglossaryentry{P_loss_av}
 {
@@ -29,6 +36,8 @@
 	symbol={P_{loss,av}},
 	description={Mean power loss},
 	first={mean power loss ($\overline{p_{l}}$)},
+	firstplural={mean power losses ($\overline{p_{l}}$)},
+	unit={\unit{\kilo\watt}},
 }
 
 \newglossaryentry{t_junc_av}
@@ -38,7 +47,11 @@
 	symbol={t_{j,av}},
 	description={Mean junction temperature},
 	first={mean junction temperature ($\overline{\vartheta_{j}}$)},
+	firstplural={mean junction temperatures ($\overline{\vartheta_{j}}$)},
+	unit={},
 }
+
+
 
 
 % % Defines a new glossary type

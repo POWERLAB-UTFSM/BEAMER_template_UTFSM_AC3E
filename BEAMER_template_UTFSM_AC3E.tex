@@ -20,6 +20,7 @@ xcolor=table,%
 
 % glosario
 \input{glos/glossaryentries.tex}
+\makeglossaries
 
 % bibliografía (biblatex)
 \addbibresource{bib/IEEEabrv.bib}
@@ -86,14 +87,16 @@ Author3~\inst{3}%
     \section{Section x}
     \subsection{Subsection xx}
     \frame{\frametitle{Contents}\tableofcontents[currentsection]}
-    \input{frame/test_1.tex}
+    \input{frame/test_tikzstandalone.tex}
     \input{frame/test_table.tex}
+    \input{frame/test_glossary.tex}
     \section{Section y}
     \subsection{Subsection xx}
     \frame{\frametitle{Contents}\tableofcontents[currentsection]}
-    \input{frame/test_2.tex}
+    \input{frame/test_itemize.tex}
+    \input{frame/test_framebreak1.tex}
     \subsection{Subsection yy}
-    \input{frame/test_3.tex}
+    \input{frame/test_block1.tex}
 
     %--------------------------------------------------------------------------------------------------------------------------
     % End frame
@@ -115,19 +118,24 @@ Author3~\inst{3}%
     %--------------------------------------------------------------------------------------------------------------------------
     \part{}
     \begin{frame}
-        \frametitle{Contents}
+        \frametitle{Contents of appendices}
         \tableofcontents
     \end{frame}
 
     \backupbegin
-    \begin{frame}
+    \section{References}
+    \begin{frame}[allowframebreaks]
         \frametitle{References}
         \printbibliography
     \end{frame}
+
+    \section{Glossary}
+    \input{frame/test_glossarylist.tex}
     \section{Appendix}
-    \input{frame/test_4.tex}
+    \input{frame/test_appendix1.tex}
     \section{Appendix 2}
-    \input{frame/test_5.tex}
+    \input{frame/test_appendix2.tex}
+
     \backupend
  
 \end{document}
