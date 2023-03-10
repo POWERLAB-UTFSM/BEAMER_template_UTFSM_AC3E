@@ -10,11 +10,20 @@
 %   firstplural={\glsentrydescplural{VSC} (\glsentryplural{VSC})}
 % }
 
+% -------------------------------------------------------
+% new definition type: "symbols"
+% -------------------------------------------------------
 \newglossary[slg]{symbols}{sls}{slo}{List of symbols}
+% -------------------------------------------------------
+% new entry: "unit"
+% -------------------------------------------------------
 \glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
 
 \glsnoexpandfields
 
+% -------------------------------------------------------
+% new acronym list
+% -------------------------------------------------------
 \newacronym{VSC}{VSC}{Voltage Source Converter}
 \newacronym{MV}{MV}{Medium Voltage}
 \newacronym{ML}{ML}{Multi-Level}
@@ -28,7 +37,16 @@
 \newacronym{GaN}{GaN}{Gallium Nitride}
 \newacronym{DAB}{DAB}{Dual Active Bridge}
 \newacronym{SST}{SST}{Solid State Transformer}
+\newacronym{SG}{SG}{Smart Grid}
+\newacronym{MMC}{MMC}{Modular Multilevel Converter}
+\newacronym{SMC}{SMC}{Stack Multicell Converter}
+\newacronym{FC}{FC}{Flying Capacitor}
+\newacronym{PFC}{PFC}{Power Factor Correction}
+\newacronym{THD}{THD}{Total Harmonic Distortion}
 
+% -------------------------------------------------------
+% new type=symbols list
+% -------------------------------------------------------
 \newglossaryentry{P_loss_av}
 {
 	type=symbols,
@@ -48,7 +66,7 @@
 	description={Mean junction temperature},
 	first={mean junction temperature ($\overline{\vartheta_{j}}$)},
 	firstplural={mean junction temperatures ($\overline{\vartheta_{j}}$)},
-	unit={},
+	unit={\unit{\kelvin}},
 }
 
 

@@ -8,6 +8,7 @@
 % glossary style
 % -------------------------------------------------------
 %\setglossarystyle{longheader}
+\renewcommand{\glossarypreamble}{\small}
 
 \makeatletter
 % use frame numbers instead of subsection slide numbers so that frames broken over slides get separate circles
@@ -19,7 +20,7 @@
   \setglossarystyle{long3col}% base this style on the list style
   \renewenvironment{theglossary}{% Change the table type --> 3 columns
   \rowcolors{1}{colorfamB!20!white}{}
-    \begin{longtable}{lp{0.9\glsdescwidth}>{\centering\arraybackslash}c}
+  \begin{longtable}{lp{0.9\glsdescwidth}>{\centering\arraybackslash}c}
   }%
   {\end{longtable}}%
   %
@@ -40,13 +41,13 @@
 }
 
 \newglossarystyle{acronlongbeamer}{%
-  \setglossarystyle{long}% base this style on the list style
+  \setglossarystyle{super}% base this style on the list style
   \renewenvironment{theglossary}{% Change the table type --> 3 columns
   \rowcolors{1}{colorfamB!20!white}{}
-     \begin{longtable}{lp{0.9\glsdescwidth}}
+  \begin{longtable}{lp{0.9\glsdescwidth}}
   }%
   {\end{longtable}}%
-  %
+  
   \renewcommand*{\glossaryheader}{%  Change the table header
     \rowcolor{colorfamA!35!white}  
     \bfseries \iflanguage{spanish}{Acrónimo}{Acronym} &
@@ -119,7 +120,7 @@
 
 \setbeamerfont{block title}{size={}}
 
-\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{footnote}{size=\tiny}
 
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -133,7 +134,10 @@
 
 %\setbeamercolor{titlelike}{parent=structure,bg=orange}
 
-\setbeamercovered{transparent}
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+% beamer frame animation cover 
+% &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+\setbeamercovered{invisible}
 
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -182,8 +186,8 @@
 % -------------------------------------------------------
 % color family A and B
 % -------------------------------------------------------
-\colorlet{colorfamA}{ac3e_orange}
-\colorlet{colorfamB}{ac3e_grey}
+%\colorlet{colorfamA}{ac3e_orange}
+%\colorlet{colorfamB}{ac3e_grey}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 % beamer color set
@@ -227,9 +231,9 @@
 \setbeamercolor{item projected}{bg=colorfamA!90!black,fg=white}
 
 \setbeamercolor{bibliography entry author}{fg=colorfamB}
-\setbeamercolor{bibliography entry title}{fg=colorfamA!90!black} 
-\setbeamercolor{bibliography entry location}{fg=colorfamB!80!white} 
-\setbeamercolor{bibliography entry note}{fg=colorfamB!80!white} 
+\setbeamercolor{bibliography entry title}{fg=colorfamA!85!black} 
+\setbeamercolor{bibliography entry location}{fg=colorfamB!75!white} 
+\setbeamercolor{bibliography entry note}{fg=colorfamB!70!white} 
 
 \setbeamercolor*{author in head/foot}{parent=palette tertiary}
 \setbeamercolor*{title in head/foot}{parent=palette secondary}

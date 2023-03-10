@@ -68,7 +68,10 @@ Author3~\inst{3}%
     %--------------------------------------------------------------------------------------------------------------------------
 
     \begin{frame}
-        [titleframe,t]
+        [
+            titleframe,
+            t,%
+        ]
     \titlepage
     \end{frame}
     
@@ -103,7 +106,10 @@ Author3~\inst{3}%
     %--------------------------------------------------------------------------------------------------------------------------
  
     \begin{frame}
-        [endframe,t]
+        [%
+            endframe,
+            t,%
+        ]%
         \centering\inserttitlegraphic\par
         \vfill
         \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{palette secondary}
@@ -116,13 +122,15 @@ Author3~\inst{3}%
     %--------------------------------------------------------------------------------------------------------------------------
     % Appendices
     %--------------------------------------------------------------------------------------------------------------------------
+
+    \backupbegin
+
     \part{}
     \begin{frame}
         \frametitle{Contents of appendices}
         \tableofcontents
     \end{frame}
 
-    \backupbegin
     \section{References}
     \begin{frame}[allowframebreaks]
         \frametitle{References}
