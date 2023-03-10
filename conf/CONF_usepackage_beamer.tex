@@ -91,17 +91,18 @@
 % %\usepackage[draft=true,allpages=true,fontfamily=cmr,angle=90,scale=0.2,mark=BORRADOR,
 % %color=red!75!green!50,xcoord=-80,ycoord=-20]{draftmark}
 \usepackage[%
+	backend=biber,%
 	autolang=hyphen,%
 	sorting=none,%
-	maxbibnames=99,%
+	% maxbibnames=99,%
 	doi=false,%
 	isbn=false,%
 	url=false,%
 	maxcitenames=3,%
-	backend=biber,%
-	firstinits=true,%
-	citestyle=ieee-alphabetic,%
-	bibstyle=ieee-alphabetic,%
+	giveninits=true,%
+	% citestyle=ieee-alphabetic,%
+	% bibstyle=ieee-alphabetic,%
+	style=ieee,
 	]{biblatex}
 \usepackage{hyperref}%
 \usepackage[%

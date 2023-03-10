@@ -36,14 +36,14 @@ xcolor=table,%
 % Configuración de título
 %--------------------------------------------------------------------------------------------------------------------------
 \title%
-[Title (small)]%
-{Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full) Title (full)
+[Beamer-\LaTeX\ template]%
+{An Unofficial Beamer-\LaTeX\ template from the Universidad Técnica Federico Santa María
 }%
 
 \subtitle{subtitle}
 
 \author%
-[Alan Wilson (\href{mailto:alan.wilson@usm.cl}{\color{white}{alan.wilson@usm.cl}}) et al.]%
+[Alan Wilson (\href{mailto:alan.wilson@usm.cl}{\color{white}{alan.wilson@usm.cl}})]%
 {Alan Wilson~\inst{1}, % 
 Author2~\inst{2}, %
 Author3~\inst{3}%
@@ -68,10 +68,10 @@ Author3~\inst{3}%
     %--------------------------------------------------------------------------------------------------------------------------
 
     \begin{frame}
-        [
-            titleframe,
+        [%
+            titleframe,%
             t,%
-        ]
+        ]%
     \titlepage
     \end{frame}
     
@@ -91,8 +91,10 @@ Author3~\inst{3}%
     \subsection{Subsection xx}
     \frame{\frametitle{Contents}\tableofcontents[currentsection]}
     \input{frame/test_tikzstandalone.tex}
+    \input{frame/test_pgfplotsstandalone.tex}
     \input{frame/test_table.tex}
     \input{frame/test_glossary.tex}
+    \input{frame/test_cite1.tex}
     \section{Section y}
     \subsection{Subsection xx}
     \frame{\frametitle{Contents}\tableofcontents[currentsection]}
@@ -108,15 +110,17 @@ Author3~\inst{3}%
     \begin{frame}
         [%
             endframe,
-            t,%
+            %t,%
         ]%
-        \centering\inserttitlegraphic\par
+        \centering
         \vfill
-        \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{palette secondary}
+        \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
             \usebeamerfont{title}
             Thank you for your attention!\\
             Any questions?
         \end{beamercolorbox}
+        \vfill\vfill
+        \inserttitlegraphic
     \end{frame}
 
     %--------------------------------------------------------------------------------------------------------------------------
@@ -132,13 +136,10 @@ Author3~\inst{3}%
     \end{frame}
 
     \section{References}
-    \begin{frame}[allowframebreaks]
-        \frametitle{References}
-        \printbibliography
-    \end{frame}
+    \input{frame/test_printbibliography.tex}
 
     \section{Glossary}
-    \input{frame/test_glossarylist.tex}
+    \input{frame/test_printglossary.tex}
     \section{Appendix}
     \input{frame/test_appendix1.tex}
     \section{Appendix 2}

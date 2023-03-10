@@ -1,0 +1,29 @@
+% !TEX root = Plot_1.tex
+% !TEX program = lualatex
+% !TEX options = -synctex=1 -interaction=nonstopmode -file-line-error "%DOC%"
+
+\RequirePackage[OT1]{fontenc}
+\documentclass[
+    % class=IEEEtran,
+    beamer,
+    crop,
+    ]{standalone}
+    
+\usepackage{currfile}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+
+\usetikzlibrary{through}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{units}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{compat=newest}
+
+\begin{document}%
+    \input{\currfiledir tikz/Plot_1.tikz}
+\end{document}%
