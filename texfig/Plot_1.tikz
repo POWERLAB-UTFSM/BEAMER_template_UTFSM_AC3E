@@ -1,0 +1,43 @@
+% !TEX root = Plot_1.tex
+% !TEX program = lualatex
+% !TEX options = -synctex=1 -interaction=nonstopmode -file-line-error "%DOC%"
+
+\begin{tikzpicture}[
+    baseline,
+    %framed,
+    %tight background,
+]%
+    \pgfplotsset{%
+        every axis/.append style={%
+            label style={font=\footnotesize},%
+            tick label style={font=\footnotesize},%
+        },%
+    }%
+    \begin{axis}[
+        width=9.5cm,
+        height=5cm,
+        xlabel={time [\si{\second}]},%
+        ylabel={data},%
+        enlarge x limits=false,
+        grid=both,
+        grid style={
+            line width=.1pt,
+            draw=gray!10,
+            },
+        major grid style={
+            line width=.2pt,
+            draw=gray!50,
+            },
+        minor tick num=4,
+    ]%
+        \addplot[%
+        color=blue,%
+        ]%
+        table[%
+            x=a,%
+            y=b,%
+            col sep=comma,%
+        ]
+        {\currfiledir data/Data_1.csv};
+    \end{axis}
+\end{tikzpicture}

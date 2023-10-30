@@ -1,33 +1,39 @@
-% !TEX root = Fig_FSM_1.tex
-% !TEX program = lualatex
-% !TEX options = -synctex=1 -interaction=nonstopmode -file-line-error "%DOC%"
-
-\RequirePackage[OT1]{fontenc}
 \documentclass[
     %class=IEEEtran,
     beamer,
-    crop,
+    tikz,
+    preview,
     ]{standalone}
     
 \usepackage{currfile}
 \usepackage{tikz}
 \usepackage[outline]{contour}
-%\usepackage{circuitikz}
-%\usepackage{pgfplots}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
 \usepackage{siunitx}
 
-%\usetikzlibrary{through}
-%\usetikzlibrary{angles, quotes}
-%\usetikzlibrary{backgrounds}
-%\usetikzlibrary{matrix}
-%\usetikzlibrary{calc}
+\usetikzlibrary{through}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{units}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{overlay-beamer-styles}
+\usetikzlibrary{shadows.blur}
 \usetikzlibrary{automata,positioning}
 \usetikzlibrary{patterns,patterns.meta}
 %\usepgfplotslibrary{units}
 %\usepgfplotslibrary{groupplots}
 
+\pgfplotsset{compat=newest}
+\pgfplotsset{unit code/.code 2 args={\si{#1#2}}}
 
 
 \begin{document}%
-    \input{\currfiledir tikz/Fig_FSM_1.tikz}
+\begin{standaloneframe}[fragile]
+    \begin{figure}
+    \input{\jobname.tikz}%
+    \end{figure}
+\end{standaloneframe}
 \end{document}%
