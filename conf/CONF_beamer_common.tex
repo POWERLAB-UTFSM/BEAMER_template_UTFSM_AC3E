@@ -132,11 +132,13 @@
 % beamer title graphics
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 \titlegraphic{%
-\begin{beamercolorbox}[center,colsep=-4bp,rounded=true,shadow=false,sep=1pt]{palette blackwhite}
+\pgfsetfillopacity{0.6}%
+\begin{beamercolorbox}[center,colsep=-4bp,rounded=false,shadow=false,sep=1.5pt,]{palette blackwhite}%
+  \pgfsetfillopacity{1}
     \includegraphics[height=45pt]{\mylogoA}%
     \hspace{45pt}%
     \includegraphics[height=45pt]{\mylogoB}%
-\end{beamercolorbox}
+\end{beamercolorbox}%
 }%
 
 %\setbeamercolor{titlelike}{parent=structure,bg=orange}
@@ -249,12 +251,14 @@
 % shading
 % -------------------------------------------------------
 \pgfdeclarehorizontalshading[bg,fg]{beamer@frametitleshade}{\paperheight}{%
-    color(0pt)=(bg);
-    color(\paperwidth)=(white)}
+	color(0pt)=(bg);
+	color(\paperwidth)=(white)
+}
 
 \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
-        color(0pt)=(bg);
-        color(4pt)=(bg)}
+	color(0pt)=(bg);
+	color(4pt)=(bg)
+}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 % beamer define frame keys
@@ -263,32 +267,32 @@
 
 \define@key{beamerframe}{titleframe}[true]{%
 %\usebackgroundtemplate{%
-  \beamer@plainframetrue%
-  \def\beamer@frametemplate{\beamer@frametemplate@plain}
-  \setbeamertemplate{background}{
-    \centering
-    \tikz\node[opacity=0.30,inner sep=0]{%
-      \includegraphics[height=\paperheight]{%
-        \mybackgroundimage%
-      }%
-    };%
-  }%
+	\beamer@plainframetrue%
+	\def\beamer@frametemplate{\beamer@frametemplate@plain}
+	\setbeamertemplate{background}{
+		\centering
+		\tikz\node[opacity=0.30,inner sep=0]{%
+			\includegraphics[height=\paperheight]{%
+				\mybackgroundimage%
+			}%
+		};%
+	}%
 }
 
 \define@key{beamerframe}{endframe}[true]{%
 %\usebackgroundtemplate{%
-  %\def\beamer@exitcode{\vspace*{0cm}\thispagestyle{empty}}
-  \setbeamertemplate{footline}[infolines theme]
-  \setbeamertemplate{headline}{\vskip\headheight}    
-  \def\beamer@entrycode{\vspace*{-\headheight}}%   
-  \setbeamertemplate{background}{
-    \centering
-    \tikz\node[opacity=0.30,inner sep=0,anchor = center,yshift=-10cm]{%
-      \includegraphics[height=\paperheight]{%
-        \mybackgroundimage%
-      }%
-    };
-  }%
+	%\def\beamer@exitcode{\vspace*{0cm}\thispagestyle{empty}}
+	\setbeamertemplate{footline}[infolines theme]
+	\setbeamertemplate{headline}{\vskip\headheight}    
+	\def\beamer@entrycode{\vspace*{-\headheight}}%   
+	\setbeamertemplate{background}{
+		\centering
+		\tikz\node[opacity=0.30,inner sep=0,anchor = center,yshift=-10cm]{%
+			\includegraphics[height=\paperheight]{%
+				\mybackgroundimage%
+			}%
+		};
+	}%
 }
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -326,7 +330,7 @@
   \vbox{}
   \begingroup
     \centering
-    %{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
     \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
       \usebeamerfont{title}\inserttitle\par%
       \ifx\insertsubtitle\@empty%
@@ -348,8 +352,8 @@
     \end{beamercolorbox}
     %\vskip0.2em
     %\vfill
-    \vfill
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    %\vfill
+    %{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
   \endgroup
 }
 
@@ -405,29 +409,31 @@
     \advance\beamer@tempdim by \beamer@leftmargin%
     \advance\beamer@tempdim by \beamer@rightmargin%
     \hskip-\Gm@lmargin\hbox{%
-      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
-        \vbox{}\vskip-.5ex%
-        \leftskip0.3cm%
-        \rightskip0.3cm plus1fil\leavevmode
-        \insertframetitle%
-        \ifx\insertframesubtitle\@empty%
-        \strut\par%
-        \else
-        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
-        \fi%
-        \nointerlineskip
-        \vbox{}%
-      \end{minipage}}%
-      \beamer@tempdim=\ht\beamer@tempbox%
-      \advance\beamer@tempdim by 2pt%
-      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
-          \usebeamercolor{frametitle right}
-          \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
-          \pgfusepath{clip}
-          \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
-      \end{pgfpicture}
-      \hskip-\paperwidth%
-      \box\beamer@tempbox%
+      \setbox\beamer@tempbox=\hbox{
+				\begin{minipage}[b]{\paperwidth}%
+					\vbox{}\vskip-.5ex%
+					\leftskip0.3cm%
+					\rightskip0.3cm plus1fil\leavevmode
+					\insertframetitle%
+					\ifx\insertframesubtitle\@empty%
+					\strut\par%
+					\else
+					\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+					\fi%
+					\nointerlineskip
+					\vbox{}%
+				\end{minipage}
+			}%
+			\beamer@tempdim=\ht\beamer@tempbox%
+			\advance\beamer@tempdim by 2pt%
+			\begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+				\usebeamercolor{frametitle right}
+				\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+				\pgfusepath{clip}
+				\pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+			\end{pgfpicture}
+			\hskip-\paperwidth%
+			\box\beamer@tempbox%
     }%
     \hskip-\Gm@rmargin%
   }%

@@ -1,4 +1,4 @@
-% LTeX: language=es
+
 \documentclass[%
 aspectratio=169,%
 xcolor=table,%
@@ -13,9 +13,8 @@ xcolor=table,%
 % configuración beamer UTFSM
 \input{conf/CONF_beamer_ac3e.tex}
 
-
 % configuración para gráficos PFG/TikZ (incluido CircuiTikZ) 
-% NO es necesario si se utiliza \usepackage{standalone}
+% NO es necesario si se utiliza \usepackage[subpreambles=true,]{standalone}
 %\input{conf/CONF_pgf_tikz.tex} 
 
 % glosario
@@ -28,7 +27,7 @@ xcolor=table,%
 \AtEveryCitekey{\clearfield{pages}}
 % \setbeamertemplate{bibliography item}{\insertbiblabel}
 
-% es necesario crear un archivo (dummy.tex) para llenar carpeta prefix (en Overleaf)
+% es necesario crear un archivo (dummy.tex) para llenar carpeta 'prefix' de externalizado (en Overleaf)
 % Externalizado de compilación de TikZ. El siguiente comando debe estar en raiz (para Overleaf):
 % \tikzexternalize[prefix=pdftikz/,]
 
@@ -63,88 +62,87 @@ Author3~\inst{3}%
 
 \begin{document}
 
-    %--------------------------------------------------------------------------------------------------------------------------
-    % TITLE
-    %--------------------------------------------------------------------------------------------------------------------------
+	%--------------------------------------------------------------------------------------------------------------------------
+	% TITLE
+	%--------------------------------------------------------------------------------------------------------------------------
 
-    \begin{frame}
-        [%
-            titleframe,%
-            t,%
-        ]%
-    \titlepage
-    \end{frame}
-    
-    %--------------------------------------------------------------------------------------------------------------------------
-    % OUTLINE
-    %--------------------------------------------------------------------------------------------------------------------------
-    \begin{frame}
-    \frametitle{Contents}
-    \tableofcontents
-    \end{frame}
+	\begin{frame}[%
+		titleframe,%
+		t,%
+	]%
+		\titlepage
+	\end{frame}
+	
+	%--------------------------------------------------------------------------------------------------------------------------
+	% OUTLINE
+	%--------------------------------------------------------------------------------------------------------------------------
+	\begin{frame}
+	\frametitle{Contents}
+	\tableofcontents
+	\end{frame}
 
-    %--------------------------------------------------------------------------------------------------------------------------
-    % FRAME input
-    %--------------------------------------------------------------------------------------------------------------------------
+	%--------------------------------------------------------------------------------------------------------------------------
+	% FRAME input
+	%--------------------------------------------------------------------------------------------------------------------------
 
-    \section{Section x}
-    \subsection{Subsection xx}
-    \frame{\frametitle{Contents}\tableofcontents[currentsection]}
-    \input{frame/test_tikzstandalone.tex}
-    \input{frame/test_pgfplotsstandalone.tex}
-    \input{frame/test_table.tex}
-    \input{frame/test_glossary.tex}
-    \input{frame/test_cite1.tex}
-    \section{Section y}
-    \subsection{Subsection xx}
-    \frame{\frametitle{Contents}\tableofcontents[currentsection]}
-    \input{frame/test_itemize.tex}
-    \input{frame/test_framebreak1.tex}
-    \subsection{Subsection yy}
-    \input{frame/test_block1.tex}
+	\section{Section x}
+	\subsection{Subsection xx}
+	\frame{\frametitle{Contents}\tableofcontents[currentsection]}
+	\input{frame/test_tikzstandalone.tex}
+	\input{frame/test_pgfplotsstandalone.tex}
+	\input{frame/test_table.tex}
+	\input{frame/test_glossary.tex}
+	\input{frame/test_cite1.tex}
+	\section{Section y}
+	\subsection{Subsection xx}
+	\frame{\frametitle{Contents}\tableofcontents[currentsection]}
+	\input{frame/test_itemize.tex}
+	\input{frame/test_framebreak1.tex}
+	\subsection{Subsection yy}
+	\input{frame/test_block1.tex}
 
-    %--------------------------------------------------------------------------------------------------------------------------
-    % End frame
-    %--------------------------------------------------------------------------------------------------------------------------
- 
-    \begin{frame}
-        [%
-            endframe,
-            %t,%
-        ]%
-        \centering
-        \vfill
-        \begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
-            \usebeamerfont{title}
-            Thank you for your attention!\\
-            Any questions?
-        \end{beamercolorbox}
-        \vfill\vfill
-        \inserttitlegraphic
-    \end{frame}
+	%--------------------------------------------------------------------------------------------------------------------------
+	% End frame
+	%--------------------------------------------------------------------------------------------------------------------------
 
-    %--------------------------------------------------------------------------------------------------------------------------
-    % Appendices
-    %--------------------------------------------------------------------------------------------------------------------------
+	\begin{frame}[%
+		endframe,
+		%t,%
+	]%
+		\centering
+		\inserttitlegraphic
+		\vfill
+		\begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
+			\usebeamerfont{title}
+			Thank you for your attention!\\
+			Any questions?
+		\end{beamercolorbox}
+		\vfill\vfill
+		%\inserttitlegraphic
+	\end{frame}
 
-    \backupbegin
+	%--------------------------------------------------------------------------------------------------------------------------
+	% Appendices
+	%--------------------------------------------------------------------------------------------------------------------------
 
-    \part{}
-    \begin{frame}
-        \frametitle{Contents of appendices}
-        \tableofcontents
-    \end{frame}
+	\backupbegin
 
-    \section{References}
-    \input{frame/test_printbibliography.tex}
+	\part{}
+	\begin{frame}
+		\frametitle{Contents of appendices}
+		\tableofcontents
+	\end{frame}
 
-    \section{Glossary}
-    \input{frame/test_printglossary.tex}
-    \section{Appendix}
-    \input{frame/test_appendix1.tex}
-    \section{Appendix 2}
-    \input{frame/test_appendix2.tex}
+	\section{References}
+	\input{frame/test_printbibliography.tex}
 
-    \backupend
+	\section{Glossary}
+	\input{frame/test_printglossary.tex}
+	\section{Appendix}
+	\input{frame/test_appendix1.tex}
+	\section{Appendix 2}
+	\input{frame/test_appendix2.tex}
+
+	\backupend
  
 \end{document}
