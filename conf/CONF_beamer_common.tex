@@ -65,6 +65,16 @@
 % -------------------------------------------------------
 % bbilatex declare name alias
 % -------------------------------------------------------
+
+% -------------------------------------------------------
+% bilatex citation format
+% -------------------------------------------------------
+
+\makeatletter
+\renewcommand\@makefnmark{\hbox{\@textsuperscript{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark}[\@thefnmark]}}}
+\renewcommand\@makefntext[1]{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark}[\@thefnmark]}\usebeamerfont*{footnote} #1}
+\makeatother
+
 %\DeclareNameAlias{author}{family-given}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -103,7 +113,9 @@
 % -------------------------------------------------------
 
 \newcommand{\mybackgroundimage}{example-image-duck}
-\newcommand{\mylogoframetitle}{example-image-duck}
+\newcommand{\mylogoframetitleA}{example-image-duck}
+\newcommand{\mylogoframetitleB}{example-image-duck}
+
 \newcommand{\mylogoA}{example-image-duck}
 \newcommand{\mylogoB}{example-image-duck}
 
@@ -262,6 +274,7 @@
 % -------------------------------------------------------
 \pgfdeclarehorizontalshading[bg,fg]{beamer@frametitleshade}{\paperheight}{%
 	color(0pt)=(bg);
+  color(0.5\paperwidth)=(white);
 	color(\paperwidth)=(white)
 }
 
@@ -428,7 +441,9 @@
 					\rightskip0.3cm plus1fil\leavevmode
 					\insertframetitle%
           \hspace*{\fill}\raisebox{-0.6ex}{%
-            \IfFileExists{\mylogoframetitle}{\includegraphics[height=3ex,keepaspectratio]{\mylogoframetitle}}{\ignorespaces}%
+            \IfFileExists{\mylogoframetitleA}{\includegraphics[height=3ex,keepaspectratio]{\mylogoframetitleA}}{\ignorespaces}%
+            \hspace*{0.5pt}
+            \IfFileExists{\mylogoframetitleB}{\includegraphics[height=3ex,keepaspectratio]{\mylogoframetitleB}}{\ignorespaces}%
           }~~%
 					\ifx\insertframesubtitle\@empty%
 					\strut\par%
