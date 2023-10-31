@@ -95,6 +95,18 @@
 
 \renewcommand*{\bibfont}{\scriptsize}
 
+%\let\IG\includegraphics
+%\renewcommand\includegraphics[2][]{\IfFileExists{#2}{\IG[#1]{#2}}{\ignorespaces}}
+
+% -------------------------------------------------------
+% my images (template)
+% -------------------------------------------------------
+
+\newcommand{\mybackgroundimage}{example-image-duck}
+\newcommand{\mylogoframetitle}{example-image-duck}
+\newcommand{\mylogoA}{example-image-duck}
+\newcommand{\mylogoB}{example-image-duck}
+
 % % -------------------------------------------------------
 % % my images (template)
 % % -------------------------------------------------------
@@ -133,11 +145,13 @@
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 \titlegraphic{%
 \pgfsetfillopacity{0.6}%
-\begin{beamercolorbox}[center,colsep=-4bp,rounded=false,shadow=false,sep=1.5pt,]{palette blackwhite}%
+\begin{beamercolorbox}[center,colsep=-4bp,rounded=false,shadow=false,sep=0pt,]{palette blackwhite}%
   \pgfsetfillopacity{1}
-    \includegraphics[height=45pt]{\mylogoA}%
+    %\includegraphics[height=45pt]{\mylogoA}%
+    \IfFileExists{\mylogoA}{\includegraphics[height=45pt,keepaspectratio]{\mylogoA}}{\ignorespaces}%
     \hspace{45pt}%
-    \includegraphics[height=45pt]{\mylogoB}%
+    %\includegraphics[height=45pt]{\mylogoB}%
+    \IfFileExists{\mylogoB}{\includegraphics[height=45pt,keepaspectratio]{\mylogoB}}{\ignorespaces}%
 \end{beamercolorbox}%
 }%
 
@@ -176,21 +190,15 @@
 \definecolor{red_usm}{HTML}{D60019}
 \definecolor{green_usm}{HTML}{008452}
 \definecolor{yellow_usm}{HTML}{F7AE00}
-%\definecolor{elo_1}{HTML}{20FF20}
-\definecolor{ac3e_orange}{HTML}{F57F25}
-\definecolor{ac3e_grey}{HTML}{414142}
-\definecolor{elo_1}{RGB}{97,195,50}
-\definecolor{elo_2}{RGB}{123,121,121}
-\definecolor{elo_3}{HTML}{77EE77}
-\definecolor{elo_4}{HTML}{F7AE00}
 
 \definecolor{links}{HTML}{0000FF}
 
 % -------------------------------------------------------
 % color family A and B
 % -------------------------------------------------------
-%\colorlet{colorfamA}{ac3e_orange}
-%\colorlet{colorfamB}{ac3e_grey}
+\colorlet{colorfamA}{blue_usm!70!white}
+\colorlet{colorfamB}{red_usm!70!white}
+\colorlet{colorfamC}{yellow_usm!70!white}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 % beamer color set
@@ -200,10 +208,12 @@
 
 \setbeamercolor{alerted text}{fg=red!80!yellow}
 \setbeamercolor*{palette primary}{fg=colorfamA!15!white,bg=colorfamA}
-\setbeamercolor*{palette secondary}{fg=colorfamB,bg=colorfamA!0!white}
+\setbeamercolor*{palette secondary}{fg=colorfamB,bg=colorfamA!0!colorfamC}
 \setbeamercolor*{palette tertiary}{fg=colorfamB!15!white,bg=colorfamB}
 \setbeamercolor*{palette quaternary}{fg=colorfamA,bg=colorfamA}
 \setbeamercolor*{palette blackwhite}{fg=black,bg=white}
+
+\setbeamercolor*{background canvas}{bg=white}
 
 \setbeamercolor*{sidebar}{fg=colorfamB,bg=colorfamA!75!white}
 
@@ -272,9 +282,10 @@
 	\setbeamertemplate{background}{
 		\centering
 		\tikz\node[opacity=0.30,inner sep=0]{%
-			\includegraphics[height=\paperheight]{%
-				\mybackgroundimage%
-			}%
+			% \includegraphics[height=\paperheight]{%
+			% 	\mybackgroundimage%
+			% }%
+      \IfFileExists{\mybackgroundimage}{\includegraphics[height=\paperheight,keepaspectratio]{\mybackgroundimage}}{\ignorespaces}%
 		};%
 	}%
 }
@@ -288,9 +299,10 @@
 	\setbeamertemplate{background}{
 		\centering
 		\tikz\node[opacity=0.30,inner sep=0,anchor = center,yshift=-10cm]{%
-			\includegraphics[height=\paperheight]{%
-				\mybackgroundimage%
-			}%
+			% \includegraphics[height=\paperheight]{%
+			% 	\mybackgroundimage%
+			% }%
+      \IfFileExists{\mybackgroundimage}{\includegraphics[height=\paperheight,keepaspectratio]{\mybackgroundimage}}{\ignorespaces}%
 		};
 	}%
 }
@@ -415,10 +427,16 @@
 					\leftskip0.3cm%
 					\rightskip0.3cm plus1fil\leavevmode
 					\insertframetitle%
+          \hspace*{\fill}\raisebox{-0.6ex}{%
+            \IfFileExists{\mylogoframetitle}{\includegraphics[height=3ex,keepaspectratio]{\mylogoframetitle}}{\ignorespaces}%
+          }~~%
 					\ifx\insertframesubtitle\@empty%
 					\strut\par%
-					\else
-					\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+					\else%
+					~~\par{%
+          \usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}%
+          \strut\par%
+          }%
 					\fi%
 					\nointerlineskip
 					\vbox{}%
