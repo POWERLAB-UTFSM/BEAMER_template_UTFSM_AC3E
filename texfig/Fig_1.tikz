@@ -1,0 +1,63 @@
+\begin{tikzpicture}[
+    %every node/.style={inner sep=0,outer sep=0},
+    %shorten >=1pt,
+    %node distance=2cm,
+    %on grid,
+    %auto,
+]%
+
+\tikzset{
+	block1/.style={
+		draw,
+		rectangle,
+		minimum width=1cm,
+		minimum height=0.5cm,
+		align=center,
+	},
+	dotnode/.style={
+		draw,
+		circle,
+		fill=black,
+		minimum size=4pt,
+		inner sep=0pt,
+	},
+	opcircle/.style={
+		draw,
+		circle,
+		minimum size=12pt,
+		inner sep=0pt,
+	},
+}
+
+%nodes
+\draw[] 
+	(0,0) node[block1](n_G){$G(s)$}
+
+	(n_G.south) ++(0,-0.5) node[anchor=north,block1](n_F){$F(s)$}
+
+	(n_G.west) ++(-1,0) node[anchor=east,block1](n_C){$C(s)$}
+
+	(n_C.west) ++(-1,0) node[anchor=east,opcircle](n_sum1){}
+;
+
+%connectors
+\draw[-Stealth]
+	(n_G.east) -- ++(0.5,0)node[dotnode,label={[above]$y(t)$}](n_y1){} -- ++(0.5,0)
+;
+\draw[-Stealth]
+	(n_y1) -- (n_y1 |- n_F.east) -- (n_F.east)
+;
+\draw[-Stealth]
+	(n_F.west) -- (n_F.west -| n_sum1.south) -- (n_sum1.south)node[coordinate,label={[below right]$-$}](){}
+;
+\draw[-Stealth]
+	(n_sum1.east) -- (n_C.west) node[pos=0.5,coordinate,label={[above]$e(t)$}](){}
+;
+\draw[-Stealth]
+	(n_C.east) -- (n_G.west) node[pos=0.5,coordinate,label={[above]$u(t)$}](){}
+;
+\draw[Stealth-]
+	(n_sum1.west) -- ++(-0.5,0)node[coordinate,label={[above]$r(t)$}](){}
+;
+
+\end{tikzpicture}
