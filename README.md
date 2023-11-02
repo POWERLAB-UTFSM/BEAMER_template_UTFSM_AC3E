@@ -8,8 +8,11 @@ Código fuente en LaTeX (beamer) para presentaciones, como plantilla.
 * Dr.-Ing. Alan Wilson (<alan.wilson@usm.cl>)
 
 
-## Contenido de las carpetas
+## Contenido de las carpetas y archivos
 * [conf](./conf) Archivos de configuración del documento LaTeX (paquetes, macros, configuración de estilos, etc.).
+	* [conf/CONF_usepackage_beamer.tex](./conf/CONF_usepackage_beamer.tex): Archivo con los paquetes LaTeX.
+	* [conf/CONF_beamer_elo_utfsm.tex](./conf/CONF_beamer_elo_utfsm.tex): Archivo de estilo del dpto. de electrónica UTFSM.
+	* [conf/CONF_beamer_ac3e.tex](./conf/CONF_beamer_ac3e.tex): Archivo de estilo del AC3E.
 
 * [img](./img) Imágenes pre-generadas (.pdf, .jpg, etc.) para insertar en el documento.
 
@@ -22,6 +25,7 @@ Código fuente en LaTeX (beamer) para presentaciones, como plantilla.
 
 	* [texfig/data](./texfig/data) Archivos de datos tipo `.csv` usados por PGFplots.
 
+* [textab](./textab) Archivos fuente LaTeX para generar tablas.
 
 ## Cómo usar LaTeX localmente
 
