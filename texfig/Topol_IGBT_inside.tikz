@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+	%every node/.style={inner sep=0,outer sep=0},
+	%shorten >=1pt,
+	%node distance=2cm,
+	%on grid,
+	%auto,
+]%
+
+\ctikzset{
+	resistors/scale=0.8,
+	capacitors/scale=0.8,
+}
+
+\draw[thick]%
+	(0,0) node[nigfete,solderdot](n_mosfet1){}
+	(n_mosfet1.G)node[circ](){} to[R,l_=$R_{ig}$] ++(-1.5,0) node[ocirc,label={[left]$G$}](n_gate1){}
+	(n_mosfet1.D) to[vR,l_=$R_d$] ++(1.5,0)node[circ](n_node1){}
+	(n_node1) node[pnp,anchor=B](n_bjtpnp1){}
+	(n_bjtpnp1.B) to[short] ++(0,-0.5)node[npn,anchor=C,xscale=-1](n_bjtnpn1){}
+	(n_bjtpnp1.C) to[short] (n_bjtnpn1.B) node[circ](){}
+	(n_bjtnpn1.B) to[R,l_=$R_{br}$] ++(0,-1.5) node[circ](n_node2){}
+	(n_node2) to[short] (n_node2 -| n_bjtnpn1.E)node[circ](){} to[short] (n_bjtnpn1.E)
+	(n_node2 -| n_bjtnpn1.E) to[short] (n_node2 -| n_mosfet1.S) node[circ](){} to[short] (n_mosfet1.S)
+	(n_mosfet1.G) to[C,l_=$C_{ge}$] (n_mosfet1.G |- n_node2) -- (n_mosfet1.E |- n_node2)
+	(n_mosfet1.G) to[C,l^=$C_{cg}$] (n_mosfet1.G |- n_bjtpnp1.E) to[short](n_bjtpnp1.E) node[circ](){}
+	(n_bjtpnp1.E) to[short] ++(0,0.5) node[ocirc,label={[above]$C$}](n_collector1){}
+	(n_node2) to[short] ++(0,-0.5) node[ocirc,label={[below]$E$}](n_emitter1){}
+	(n_bjtpnp1.E) to[short] ++(0.5,0)node[coordinate](n_node3){} to[C,l=$C_{ce}$] (n_node3 |- n_node2) to[short](n_node2)
+ ;
+
+\end{tikzpicture}

@@ -1,0 +1,35 @@
+\documentclass[
+    % class=IEEEtran,
+    beamer,
+    tikz,
+    preview,
+    %crop,
+    ]{standalone}
+    
+\usepackage{currfile}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{pgf-pie}
+
+\usetikzlibrary{through}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{units}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{overlay-beamer-styles}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{patterns,patterns.meta}
+
+\pgfplotsset{compat=newest}
+\pgfplotsset{unit code/.code 2 args={\si{#1#2}}}
+
+\begin{document}%
+\begin{standaloneframe}[fragile]
+    \begin{figure}
+    \input{\jobname.tikz}%
+    \end{figure}
+\end{standaloneframe}
+\end{document}%

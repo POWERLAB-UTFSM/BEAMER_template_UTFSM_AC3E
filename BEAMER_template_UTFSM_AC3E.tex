@@ -11,7 +11,7 @@ xcolor=table,%
 
 % configuración beamer UTFSM
 \input{conf/CONF_beamer_common.tex}
-\input{conf/CONF_beamer_elo_utfsm.tex}
+\input{conf/CONF_beamer_ac3e.tex}
 
 % configuración para gráficos PFG/TikZ (incluido CircuiTikZ) 
 % NO es necesario si se utiliza \usepackage[subpreambles=true,]{standalone}
@@ -90,6 +90,7 @@ Author3~\inst{3}%
 	\frame{\frametitle{Contents}\tableofcontents[currentsection]}
 	\input{frame/test_tikzstandalone.tex}
 	\input{frame/test_pgfplotsstandalone.tex}
+	\input{frame/test_circuitikz.tex}
 	\input{frame/test_table.tex}
 	\input{frame/test_glossary.tex}
 	\input{frame/test_cite1.tex}
@@ -109,16 +110,7 @@ Author3~\inst{3}%
 		endframe,
 		%t,%
 	]%
-		\centering
-		\inserttitlegraphic
-		\vfill
-		\begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}
-			\usebeamerfont{title}
-			Thank you for your attention!\\
-			Any questions?
-		\end{beamercolorbox}
-		\vfill\vfill
-		%\inserttitlegraphic
+		\myendcontent
 	\end{frame}
 
 	%--------------------------------------------------------------------------------------------------------------------------

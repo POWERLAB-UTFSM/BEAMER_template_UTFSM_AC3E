@@ -66,6 +66,8 @@
 % bbilatex declare name alias
 % -------------------------------------------------------
 
+%\DeclareNameAlias{author}{family-given}
+
 % -------------------------------------------------------
 % bilatex citation format
 % -------------------------------------------------------
@@ -74,8 +76,9 @@
 \renewcommand\@makefnmark{\hbox{\@textsuperscript{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark}[\@thefnmark]}}}
 \renewcommand\@makefntext[1]{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark}[\@thefnmark]}\usebeamerfont*{footnote} #1}
 \makeatother
+\renewcommand{\footnotesize}{\scriptsize}
 
-%\DeclareNameAlias{author}{family-given}
+%\AtEveryCitekey{\iffootnote{\tiny}{}}
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 % newcommand
@@ -140,6 +143,7 @@
 
 \setbeamerfont{date}{size=\footnotesize}
 \setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{footnote mark}{size=\scriptsize}
 
 \setbeamerfont{bibliography item}{size=\footnotesize}
 \setbeamerfont{bibliography entry author}{size=\footnotesize}
@@ -149,7 +153,7 @@
 
 \setbeamerfont{block title}{size={}}
 
-\setbeamerfont{footnote}{size=\tiny}
+%\setbeamerfont{footnote}{size=\tiny}
 
 
 % &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -308,7 +312,7 @@
 	%\def\beamer@exitcode{\vspace*{0cm}\thispagestyle{empty}}
 	\setbeamertemplate{footline}[infolines theme]
 	\setbeamertemplate{headline}{\vskip\headheight}    
-	\def\beamer@entrycode{\vspace*{-\headheight}}%   
+	\def\beamer@entrycode{\vspace*{-\headheight}}
 	\setbeamertemplate{background}{
 		\centering
 		\tikz\node[opacity=0.30,inner sep=0,anchor = center,yshift=-10cm]{%
@@ -476,6 +480,25 @@
   \vskip-2pt
 }
 
+% -------------------------------------------------------
+% endpage content
+% -------------------------------------------------------
+\newcommand{\myendcontent}{%
+\centering%
+  {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}\vskip1em
+	\vfil%
+	\begin{beamercolorbox}[sep=4pt,center,rounded=true,shadow=true]{title}%
+		\usebeamerfont{title}%
+		\iflanguage{spanish}{%
+		¡Gracias por su atención!\\
+		¿Preguntas?
+		}
+		{Thank you for your attention!\\%
+		Any questions?%
+		}
+	\end{beamercolorbox}%
+	\vfill\vfill\vfill\vfill%
+}
 
 
 
