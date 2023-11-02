@@ -1,37 +1,28 @@
-\useoutertheme{utfsm}
-\useinnertheme{utfsm}
-\usecolortheme{eloutfsm}
+% % -------------------------------------------------------
+% % include common
+% % -------------------------------------------------------
+% \input{conf/CONF_beamer_common.tex}
 
-\titlegraphic{
-    \includegraphics[height=50pt]{img/UTFSM_color_claro_vertical.pdf} \hspace{40pt} \includegraphics[height=50pt]{img/ELO_color_claro_vertical.pdf}
-}
+% -------------------------------------------------------
+% my images (template)
+% -------------------------------------------------------
+%\renewcommand{\mybackgroundimage}{img/circuit_background.jpg}
+\renewcommand{\mylogoA}{conf/img/Logo_utfsm_fullcolor_vertical.pdf}
+%\renewcommand{\mylogoB}{img/ELO_color_claro_vertical.pdf}
+%\renewcommand{\mylogoframetitleA}{img/ELO_logo.pdf}
 
-\definecolor{links}{HTML}{0000FF}
-\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% -------------------------------------------------------
+% color family 
+% -------------------------------------------------------
+\definecolor{ac3e_orange}{HTML}{F57F25}
+\definecolor{ac3e_grey}{HTML}{414142}
+\definecolor{elo_green}{RGB}{97,195,50}
+\definecolor{elo_grey}{RGB}{123,121,121}
+\definecolor{blue_usm}{HTML}{004B85}
+\definecolor{red_usm}{HTML}{D60019}
+\definecolor{green_usm}{HTML}{008452}
+\definecolor{yellow_usm}{HTML}{F7AE00}
 
-\newcommand{\backupbegin}{
-   \newcounter{finalframe}
-   \setcounter{finalframe}{\value{framenumber}}
-}
-\newcommand{\backupend}{
-   \setcounter{framenumber}{\value{finalframe}}
-}
-
-\setbeamerfont{bibliography item}{size=\footnotesize}
-\setbeamerfont{bibliography entry author}{size=\footnotesize}
-\setbeamerfont{bibliography entry title}{size=\footnotesize}
-\setbeamerfont{bibliography entry location}{size=\footnotesize}
-\setbeamerfont{bibliography entry note}{size=\footnotesize}
-
-\setbeamertemplate{bibliography item}{\insertbiblabel}
-
-\setbeamerfont{block title}{size={}}
-%\setbeamercolor{titlelike}{parent=structure,bg=orange}
-
-
-\setbeamercovered{invisible}
-\setbeamertemplate{blocks}[rounded]
-
-\captionsetup{font=scriptsize,labelfont=scriptsize}
-
-%\setbeamertemplate{itemize/enumerate body begin}{\small}
+\colorlet{colorfamA}{blue_usm}
+\colorlet{colorfamB}{red_usm}
+\colorlet{colorfamC}{yellow_usm}

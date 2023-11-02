@@ -13,9 +13,10 @@ Código fuente en LaTeX (beamer) para presentaciones, como plantilla.
 	* [conf/CONF_usepackage_beamer.tex](./conf/CONF_usepackage_beamer.tex): Archivo con los paquetes LaTeX.
 	* [conf/CONF_beamer_elo_utfsm.tex](./conf/CONF_beamer_elo_utfsm.tex): Archivo de estilo del dpto. de electrónica UTFSM.
 	* [conf/CONF_beamer_ac3e.tex](./conf/CONF_beamer_ac3e.tex): Archivo de estilo del AC3E.
+	* [img/conf](./conf/img) Archivos de imagen usadas para la configuración de estilos de beamer.
 
 * [img](./img) Imágenes pre-generadas (.pdf, .jpg, etc.) para insertar en el documento.
-
+	
 * [frame](./frame) Código fuente con el contenido de las diapositivas (frames).
 
 * [glos](./glos) Definiciones de glosario utilizando `\usepackage{glossaries}`
