@@ -30,7 +30,7 @@
 }
 
 %nodes
-\draw[] 
+\draw[visible on=<1->,] 
 	(0,0) node[block1](n_G){$G(s)$}
 
 	(n_G.south) ++(0,-0.5) node[anchor=north,block1](n_F){$F(s)$}
@@ -41,22 +41,22 @@
 ;
 
 %connectors
-\draw[-Stealth]
+\draw[-Stealth,visible on=<2->,]
 	(n_G.east) -- ++(0.5,0)node[dotnode,label={[above]$y(t)$}](n_y1){} -- ++(0.5,0)
 ;
-\draw[-Stealth]
+\draw[-Stealth,visible on=<2->,]
 	(n_y1) -- (n_y1 |- n_F.east) -- (n_F.east)
 ;
-\draw[-Stealth]
+\draw[-Stealth,visible on=<2->,]
 	(n_F.west) -- (n_F.west -| n_sum1.south) -- (n_sum1.south)node[coordinate,label={[below right]$-$}](){}
 ;
-\draw[-Stealth]
+\draw[-Stealth,visible on=<2->,]
 	(n_sum1.east) -- (n_C.west) node[pos=0.5,coordinate,label={[above]$e(t)$}](){}
 ;
-\draw[-Stealth]
+\draw[-Stealth,visible on=<2->,]
 	(n_C.east) -- (n_G.west) node[pos=0.5,coordinate,label={[above]$u(t)$}](){}
 ;
-\draw[Stealth-]
+\draw[Stealth-,visible on=<2->,]
 	(n_sum1.west) -- ++(-0.5,0)node[coordinate,label={[above]$r(t)$}](){}
 ;
 
