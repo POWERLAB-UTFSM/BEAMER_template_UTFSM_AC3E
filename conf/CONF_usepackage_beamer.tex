@@ -118,3 +118,27 @@
 \newcommand{\langen}[1]{\protect\IfLanguageName{english}{#1}{}}%
 \newcommand{\langde}[1]{\protect\IfLanguageName{ngerman}{#1}{}}%
 \newcommand{\langes}[1]{\protect\IfLanguageName{spanish}{#1}{}}%
+
+\usepackage{currfile}
+\usepackage{tikz}
+\usepackage[outline]{contour}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+
+\usetikzlibrary{through}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{units}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{overlay-beamer-styles}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{automata,positioning}
+\usetikzlibrary{patterns,patterns.meta}
+%\usepgfplotslibrary{units}
+%\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{compat=newest}
+\pgfplotsset{unit code/.code 2 args={\si{#1#2}}}

@@ -1,7 +1,9 @@
 \begin{frame}
     \begin{figure}[t]
         \begin{center}
-            \includestandalone[]{texfig/Fig_1}% 
+            \only<1>{\includestandalone[page=1]{texfig/Fig_1}}
+            \only<2>{\includestandalone[page=2]{texfig/Fig_1}}
+            %\input{texfig/Fig_1.tikz} 
             %\includegraphics[width=1\textwidth]{figures/Scheme_1.pdf}
             \caption{Dummy TikZ block diagram.}
             \label{fig:fig_1}  
